@@ -1,4 +1,6 @@
-
+import ReadButton from "@/components/booksdetailsButton/ReadButton";
+import WishlistButton from "@/components/booksdetailsButton/wishlistButton";
+import WishListButton from "@/components/booksdetailsButton/wishlistButton";
 import { IBook } from "@/type/type";
 import Image from "next/image";
 import React from "react";
@@ -19,9 +21,7 @@ const Page = async ({ params }: IBookProps) => {
   const { id } = await params;
 
   const booksData: IBook[] = await getBooks();
-  const book = booksData.find(
-    (item) => item.bookId === Number(id)
-  );
+  const book = booksData.find((item) => item.bookId === Number(id));
 
   if (!book) {
     return <div className="p-10 text-center">Book not found</div>;
@@ -43,13 +43,9 @@ const Page = async ({ params }: IBookProps) => {
         <div>
           <h1 className="text-3xl font-bold">{book.bookName}</h1>
 
-          <p className="mt-3 text-gray-600">
-            By: {book.author}
-          </p>
+          <p className="mt-3 text-gray-600">By: {book.author}</p>
 
-          <p className="mt-5 border-y py-3">
-            {book.category}
-          </p>
+          <p className="mt-5 border-y py-3">{book.category}</p>
 
           <p className="mt-4 text-sm leading-6 text-gray-600">
             <span className="font-bold text-black">Review: </span>
@@ -69,7 +65,6 @@ const Page = async ({ params }: IBookProps) => {
             ))}
           </div>
 
-
           <div className="mt-5 space-y-3 border-t pt-4 text-sm">
             <p className="flex justify-between gap-4">
               <span className="text-gray-500">Number of Pages:</span>
@@ -83,15 +78,18 @@ const Page = async ({ params }: IBookProps) => {
 
             <p className="flex justify-between gap-4">
               <span className="text-gray-500">Year of Publishing:</span>
-              <span className="font-semibold">
-                {book.yearOfPublishing}
-              </span>
+              <span className="font-semibold">{book.yearOfPublishing}</span>
             </p>
 
             <p className="flex justify-between gap-4">
               <span className="text-gray-500">Rating:</span>
               <span className="font-semibold">⭐ {book.rating}</span>
             </p>
+            <div className="mt-6 flex gap-3">
+              <ReadButton book={book} />
+              <WishlistButton book={book} />
+             
+            </div>
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@
 import React from "react";
 import Bookscard from "./Bookscard";
 import { IBook } from "@/type/type";
+import Link from "next/link";
 
 const getBooks = async () => {
   const res = await fetch("http://localhost:3000/booksData.json");
@@ -19,10 +20,18 @@ const Books = async () => {
       </h2>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {booksData.map((book) => (
+        {booksData.slice(0,6).map((book) => (
           <Bookscard book={book} key={book.bookId} />
         ))}
       </div>
+      <div className="mt-10 flex justify-center">
+  <Link href="/listed-books"
+          className="btn btn-primary btn-sm"
+        >
+          View All Books
+      </Link>
+      </div>
+  
     </section>
   );
 };

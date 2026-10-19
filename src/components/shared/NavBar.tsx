@@ -9,7 +9,7 @@ const NavBar = () => {
 
   const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'Listed Books', href: '/listed-books' },
+    { name: 'All Books', href: '/listed-books' },
     { name: 'Read Books', href: '/read-books' },
   ];
 
@@ -44,7 +44,7 @@ const NavBar = () => {
             </div>
 
             <div>
-              <h1 className="text-2xl font-extrabold tracking-tight text-base-content">
+              <h1 className="text-xl font-extrabold ">
                 Book<span className="text-emerald-600">Vibe</span>
               </h1>
               <p className="hidden text-xs tracking-wide text-base-content/60 sm:block">
@@ -78,14 +78,14 @@ const NavBar = () => {
         <div className="navbar-end gap-2">
           <div className="hidden items-center gap-2 sm:flex">
             <Link
-              href="/login"
+              href="/sign-in"
               className="btn btn-ghost rounded-xl px-4 font-semibold"
             >
               Login
             </Link>
 
             <Link
-              href="/register"
+              href="/sign-up"
               className="btn rounded-xl border-0 bg-emerald-600 px-5 text-white shadow-sm hover:bg-emerald-700"
             >
               Register
@@ -134,11 +134,11 @@ const NavBar = () => {
               ))}
 
               <li className="mt-2 border-t border-base-200 pt-2 sm:hidden">
-                <Link href="/login">Login</Link>
+                <Link href="/sign-in">Login</Link>
               </li>
               <li className="sm:hidden">
                 <Link
-                  href="/register"
+                  href="/sign-up"
                   className="bg-emerald-600 text-white hover:bg-emerald-700"
                 >
                   Register
